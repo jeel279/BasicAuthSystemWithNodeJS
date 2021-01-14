@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>WebPortal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://materializecss.com/css/prism.css" rel="stylesheet">
+    <link href="https://materializecss.com/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <script src="https://materializecss.com/docs/js/jquery.timeago.min.js"></script>
+  <script src="https://materializecss.com/docs/js/prism.js"></script>
+  <script src="https://materializecss.com/docs/js/lunr.min.js"></script>
+  <script src="https://materializecss.com/docs/js/search.js"></script>
+  <script src="https://materializecss.com/bin/materialize.js"></script>
+  <script src="https://materializecss.com/docs/js/init.js"></script>
+  <script id="autoLoad">
+    $.post("http://localhost:8080/checkStat",{ls: JSON.stringify(localStorage)},function(data){
+        $("body").html(data);
+    });
+      </script>
+</body>
+
+</html>

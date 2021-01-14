@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>WebPortal</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="../assets/css/Google-Style-Text-Input.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="../assets/css/Mega-Menu-Dropdown-100-Editable---Ambrodu.css">
+    <link rel="stylesheet" href="../assets/css/select2.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/untitled.css">
+</head>
+
+<body>
+    <form style="padding: 10%;">
+        <div class="form-group">
+            <h1 style="font-family: ABeeZee, sans-serif;text-align: center;margin-bottom: 50px;">Register</h1>
+        </div>
+        <div id="mainR">
+        <div class="group">      
+    <input type="text" id="name" style="width:100%" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Full Name</label>
+</div>
+
+
+<div class="group">      
+    <input type="email" id="email" style="width:100%" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Email</label>
+</div>
+
+
+<div class="group">      
+    <input type="password" id="password" style="width:100%" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Password</label>
+</div>
+
+
+<div class="group">      
+    <input type="number" id="phone" style="width:100%" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Phone No. (WhatsApp)</label>
+</div>
+
+
+<div class="group">      
+    <input type="date" id="date" style="width:100%" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Date Of Birth</label>
+</div>
+
+
+<div style="width:100%;display:flex">
+<select id="branch" style="width:45%;display:inline-block" class="form-control" required>
+        <option selected disabled>Branch</option>
+        <option value="ICT">ICT</option>
+        <option value="CE">CE</option>
+        <option value="EC">EC</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="PETR">PETR</option>
+</select>
+<input placeholder="Year" type="number" id="batch" min="1900" max="2099" step="1" style="width:45%;display:inline-block;margin-left:5%" class="form-control">
+</div><button class="btn btn-primary" type="button" id="regBtn" style="text-align: center;width:100%;margin-top:10%">Register !</button>
+</div>
+<div id="verification" style="padding-top:10%;display:none">
+    <div class="group"><input type="number" id="otp" style="  width: 100%;
+" required /><span class="highlight"></span><span class="bar"></span><label>Enter Verification Code</label></div><button class="btn btn-primary" type="button" id="otpVerifyBtn" style="text-align: center;width:100%;">Verify</button>
+</div>
+    </form>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="../assets/js/mdc_select.js"></script>
+    <script src="../assets/js/select2-1.js"></script>
+    <script src="../assets/js/select2-2.js"></script>
+    <script src="../assets/js/select2-3.js"></script>
+    <script src="../assets/js/select2-4.js"></script>
+    <script src="../assets/js/select2-5.js"></script>
+    <script src="../assets/js/select2-6.js"></script>
+    <script src="../assets/js/select2.js"></script>
+    <script>
+    $("#regBtn").click(function(){
+    $.post("../addData",{email:$("#email").val()},
+    function(data){
+    	if(data){
+    		$("#mainR").hide();
+    		$("#verification").show();
+    		$("#otpVerifyBtn").click(function(){ 
+    		var ss = 
+    			$.post("../checkOTP",{email: $("#email").val(),otp:$("#otp").val(), name: $("#name").val(), phone: $("#phone").val(), dob: $("#date").val(), batchid: $("#branch option:selected").val()+"-"+$("#batch").val(),password: $("#password").val()},
+    			function(dataa){
+    				$("body").empty();
+    				$("body").html(dataa);
+    			})
+    			
+    	})
+    }
+    })
+    });
+    </script>
+</body>
+
+</html>

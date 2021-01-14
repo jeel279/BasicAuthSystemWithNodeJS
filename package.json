@@ -1,0 +1,37 @@
+{
+  "name": "basic-auth-system",
+  "version": "1.0.0",
+  "description": "Authentication System with Email Verification",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeel Vachhani",
+  "license": "SEE LICENSE IN LICENCE",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.4.2",
+    "mailgun-js": "^0.22.0",
+    "nodemailer": "^6.4.17"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeel279/BasicAuthSystemWithNodeJS.git"
+  },
+  "keywords": [
+    "Auth",
+    "System",
+    "With",
+    "NodeJS",
+    "Email",
+    "Verfication"
+  ],
+  "bugs": {
+    "url": "https://github.com/jeel279/BasicAuthSystemWithNodeJS/issues"
+  },
+  "homepage": "https://github.com/jeel279/BasicAuthSystemWithNodeJS#readme"
+}

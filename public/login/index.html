@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>WebPortal</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="../assets/css/Google-Style-Text-Input.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="../assets/css/Mega-Menu-Dropdown-100-Editable---Ambrodu.css">
+    <link rel="stylesheet" href="../assets/css/select2.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/untitled.css">
+</head>
+
+<body style="background-color:#FFF !important">
+    <div class="login-clean" style="min-height: 100% !important;background-color:#FFF !important;padding:0;margin-top:10%">
+        <form>
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img src="https://wilcity.com/wp-content/uploads/2018/12/sample-logo-design-png-3-1.png" style="width:200px"></div>
+            <div class="form-group"><input class="form-control" type="text" name="username" id="uid" placeholder="Email or phone"></div>
+            <div class="form-group"><input class="form-control" type="password" id="password" name="password" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="button" id="submit" style="background-color:#f4511e !important">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+        </form>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="../assets/js/mdc_select.js"></script>
+    <script src="../assets/js/select2-1.js"></script>
+    <script src="../assets/js/select2-2.js"></script>
+    <script src="../assets/js/select2-3.js"></script>
+    <script src="../assets/js/select2-4.js"></script>
+    <script src="../assets/js/select2-5.js"></script>
+    <script src="../assets/js/select2-6.js"></script>
+    <script src="../assets/js/select2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script>
+        $("#submit").click(function(){
+            $.post("../auth",{userid: $("#uid").val(), passwd: $("#password").val()},
+            function(data){
+                if(data){
+                    localStorage.setItem("auth",true);
+                    location.assign("..");
+                }else{
+                    alert("Wrong ID and Password");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
